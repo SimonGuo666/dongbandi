@@ -1,0 +1,172 @@
+/* 通用样式 (不变) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+}
+
+header {
+    background-color: #009cff;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px; /* 这里调整间距 */
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* 赛程展示区 (不变) */
+#match-schedule {
+    margin-top: 30px;
+}
+
+#match-schedule h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.match-card-container {
+    display: flex;
+    overflow-x: auto;   /* 使容器能够水平滚动 */
+    gap: 20px;          /* 卡片之间的间距 */
+    padding-bottom: 20px; /* 增加底部空间避免滚动条被遮挡 */
+}
+
+.match-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;        /* 每个卡片的固定宽度 */
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    flex-shrink: 0;      /* 防止卡片缩小 */
+}
+.logo {
+    width: 250px;
+    margin-top: -80px;
+    margin-bottom: -70px;
+}
+
+@media (max-width: 600px) {
+    .logo {
+        width: 250px;
+        margin-top: -80px;
+        margin-bottom: -70px;
+    }}
+.match-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.match-card .team {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.match-card .score {
+    font-size: 16px;
+    color: #009cff;
+}
+
+.match-card .location {
+    font-size: 14px;
+    color: #555;
+}
+
+/* 手机设备样式 */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 20px;
+    }
+
+    nav a {
+        font-size: 14px;
+        margin: 0 5px;  /* 这里调整为更小的间距 */
+    }
+
+    #match-schedule h2 {
+        font-size: 18px;
+    }
+
+    .match-card-container {
+        gap: 10px;  /* 小屏设备间距稍小 */
+    }
+
+    .match-card {
+        padding: 12px;
+        width: 200px;  /* 在手机上减少卡片宽度 */
+    }
+
+    .match-card .team {
+        font-size: 16px;
+    }
+
+    .match-card .score {
+        font-size: 14px;
+    }
+
+    .match-card .location {
+        font-size: 12px;
+    }
+    .logo {
+       margin-left:0px
+    }
+}
+
+/* 自定义滚动条样式 (不变) */
+.match-card-container::-webkit-scrollbar {
+    height: 8px; /* 设置横向滚动条的高度 */
+}
+
+.match-card-container::-webkit-scrollbar-thumb {
+    background-color: #009cff; /* 滑动块的颜色 */
+    border-radius: 4px; /* 滑动块的圆角 */
+    transition: background-color 0.3s ease; /* 添加过渡效果 */
+}
+
+.match-card-container::-webkit-scrollbar-thumb:hover {
+    background-color: #0077b3; /* 鼠标悬停时改变颜色 */
+}
+
+.match-card-container::-webkit-scrollbar-track {
+    background-color: #e0e0e0; /* 滚动条轨道的颜色 */
+    border-radius: 4px; /* 滚动条轨道的圆角 */
+}
+
+.match-card-container::-webkit-scrollbar-corner {
+    background-color: transparent; /* 消除右下角的交接区域 */
+}
+
+/* 针对 Firefox 定制滚动条 (不变) */
+.match-card-container {
+    scrollbar-width: thin; /* 设置滚动条为细 */
+    scrollbar-color: #009cff #e0e0e0; /* 滑块颜色和轨道颜色 */
+}
+
+.match-card-container:hover {
+    scrollbar-color: #0077b3 #e0e0e0; /* 鼠标悬停时改变滚动条颜色 */
+}
